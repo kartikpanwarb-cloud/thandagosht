@@ -31,13 +31,14 @@ export default function Navbar() {
       <div className="page-container !py-3.5 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="group flex items-center gap-2.5" data-testid="navbar-logo">
-          <span className="grid h-9 w-9 place-items-center rounded-[10px] bg-ink text-canvas font-bold tracking-tight transition-transform group-hover:rotate-[-4deg]">
+          <span className="relative grid h-10 w-10 place-items-center rounded-full bg-ink text-canvas font-display font-bold tracking-tight transition-transform group-hover:rotate-[-6deg]">
             B
+            <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-accent ring-2 ring-canvas" />
           </span>
           <span className="flex flex-col leading-tight">
-            <span className="text-base font-bold tracking-tight">BASERA</span>
-            <span className="hidden text-[10px] font-medium uppercase tracking-[0.14em] text-ink-subtle sm:inline">
-              Srinagar · Garhwal
+            <span className="font-display text-lg font-bold tracking-tight">BASERA</span>
+            <span className="hidden font-hand text-[13px] text-accent-dark sm:inline -mt-0.5">
+              from Srinagar, Garhwal
             </span>
           </span>
         </Link>

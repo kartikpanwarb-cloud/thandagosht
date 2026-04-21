@@ -4,7 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Fraunces', 'Georgia', 'serif'],
+        hand: ['Caveat', 'cursive'],
       },
       colors: {
         canvas: { DEFAULT: '#FBF9F5', soft: '#F5F2EC', card: '#FFFFFF' },

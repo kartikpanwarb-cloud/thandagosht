@@ -11,32 +11,38 @@ export default function RoomCard({ room }) {
   return (
     <Link
       to={`/rooms/${_id}`}
-      className="card card-hover group block"
+      className="card card-hover group block relative"
       data-testid="room-card"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-canvas-soft">
         <img
           src={imgSrc}
           alt={title}
-          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
           onError={(e) => { e.target.src = PLACEHOLDER; }}
           loading="lazy"
         />
+        {/* gentle dark gradient at bottom */}
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 to-transparent opacity-90" />
+
+        {/* room type tag (top-right) */}
         <span className="absolute right-3 top-3 rounded-full bg-canvas-card/95 px-2.5 py-1 text-[11px] font-semibold text-ink shadow-soft backdrop-blur">
           {roomType}
+        </span>
+
+        {/* price chip (bottom-left, on image) */}
+        <span className="absolute left-3 bottom-3 inline-flex items-baseline gap-1 rounded-full bg-canvas-card/95 px-3 py-1 shadow-soft backdrop-blur">
+          <span className="text-sm font-bold text-ink">
+            ₹{Number(price).toLocaleString('en-IN')}
+          </span>
+          <span className="text-[10px] font-medium text-ink-muted">/mo</span>
         </span>
       </div>
 
       <div className="p-4">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="line-clamp-1 text-[15px] font-semibold text-ink group-hover:text-accent-dark transition-colors">
-            {title}
-          </h3>
-          <span className="shrink-0 whitespace-nowrap text-[15px] font-bold text-accent-dark">
-            ₹{Number(price).toLocaleString('en-IN')}
-            <span className="text-[10px] font-medium text-ink-muted">/mo</span>
-          </span>
-        </div>
+        <h3 className="font-display text-[17px] font-semibold leading-snug line-clamp-1 text-ink group-hover:text-accent-dark transition-colors">
+          {title}
+        </h3>
 
         <p className="mt-1 flex items-center gap-1 text-[13px] text-ink-muted">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
